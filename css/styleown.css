@@ -1,0 +1,534 @@
+/* Our own CSS */
+/* Carousel styling */
+#introCarousel,
+.carousel-inner,
+.carousel-item,
+.carousel-item.active {
+  height: 100vh;
+}
+
+.carousel-item{
+  background-image: url('https://bsd.calvin.ac.id/wp-content/uploads/2021/01/DSC08918.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+  #introCarousel {
+    margin-top: -58.59px;
+  }
+}
+
+.navbar .nav-link {
+  color: #fff !important;
+}
+
+body {
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  font-family: 'Gotham';
+}
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+
+/* for team */
+/* Member */
+.section-from-gpt {
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  background-color: #ffffff;
+}
+
+.section-from-gpt .item-subtitle {
+  line-height: 1.2;
+  color: #000000;
+  text-align: center;
+}
+
+.section-from-gpt img,
+.section-from-gpt .item-img {
+  width: 100%;
+  height: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.section-from-gpt .item:focus,
+.section-from-gpt span:focus {
+  outline: none;
+}
+
+.section-from-gpt .item {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 767px) {
+  .section-from-gpt .item {
+      margin-bottom: 1rem;
+  }
+}
+
+.section-from-gpt .item-wrapper {
+  position: relative;
+  border-radius: 4px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.section-from-gpt .mbr-section-btn {
+  margin-top: auto !important;
+}
+
+.section-from-gpt .mbr-section-title {
+  color: #000000;
+}
+
+.section-from-gpt .mbr-text,
+.section-from-gpt .mbr-section-btn {
+  color: #000000;
+  text-align: center;
+}
+
+.section-from-gpt .item-title {
+  color: #000000;
+}
+
+.section-from-gpt .content-head {
+  max-width: 800px;
+}
+
+.about-us {
+  min-height: 70vh;
+}
+
+.about-us > .row {
+  align-items: center;
+}
+
+.about-us > div > div > p {
+  text-align: justify;
+  font-size: large;
+}
+ 
+.bible-quotes{
+  background-image: url('https://calvin.ac.id/wp-content/uploads/2021/10/zck_-TtKtYYrdBII-unsplash-1.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  min-height: 30vh;
+}
+
+.bible-quotes > h1 {
+  font-size: xx-large;
+  color: var(--bs-white);
+}
+
+.bible-quotes > p {
+  font-size:larger;
+  color: var(--bs-white);
+}
+
+.profile {
+  background-color: var(--bs-gray-100);
+  border-radius: 2%;
+  min-height: 75vh;
+}
+
+.divisions {
+  min-height: 82.5vh;
+}
+
+.ministry-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../assets/bg/bg_minis.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 50vh;
+}
+
+.events-div {
+  background-image: url("../assets/bg/bg_events.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 50vh;
+}
+
+.talent-div {
+  background-image: url("../assets/bg/bem-talent.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 50vh;
+}
+
+footer {
+  background-color: var(--bs-gray-dark);
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--bs-gray-500);
+}
+
+/* Hero Section - Minis */
+
+.cid-u6MbAsct8P {
+  display: flex;
+  background-image: url("../assets/bg/bg_minis.jpg");
+}
+
+.cid-u6MbAsct8P .mbr-overlay {
+  background-color: #000000;
+  opacity: 0.5;
+}
+
+@media (min-width: 768px) {
+  .cid-u6MbAsct8P {
+      align-items: flex-end;
+  }
+
+  .cid-u6MbAsct8P .row {
+      justify-content: center;
+  }
+
+  .cid-u6MbAsct8P .content-wrap {
+      padding: 1rem 3rem;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .cid-u6MbAsct8P .content-wrap {
+      min-width: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .cid-u6MbAsct8P {
+      -webkit-align-items: center;
+      align-items: flex-end;
+  }
+
+  .cid-u6MbAsct8P .mbr-row {
+      -webkit-justify-content: center;
+      justify-content: center;
+  }
+
+  .cid-u6MbAsct8P .content-wrap {
+      width: 100%;
+  }
+}
+
+.cid-u6MbAsct8P .mbr-section-title,
+.cid-u6MbAsct8P .mbr-section-subtitle {
+  text-align: center;
+}
+
+.cid-u6MbAsct8P .mbr-text,
+.cid-u6MbAsct8P .mbr-section-btn {
+  text-align: center;
+}
+
+/* Hero Section - Events*/
+
+.cid-u6MbAsct8PEE {
+  display: flex;
+  background-image: url("../assets/bg/bg_events.jpg");
+}
+
+.cid-u6MbAsct8PEE .mbr-overlay {
+  background-color: #000000;
+  opacity: 0.5;
+}
+
+@media (min-width: 768px) {
+  .cid-u6MbAsct8PEE {
+      align-items: flex-end;
+  }
+
+  .cid-u6MbAsct8PEE .row {
+      justify-content: center;
+  }
+
+  .cid-u6MbAsct8PEE .content-wrap {
+      padding: 1rem 3rem;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .cid-u6MbAsct8PEE .content-wrap {
+      min-width: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .cid-u6MbAsct8PEE {
+      -webkit-align-items: center;
+      align-items: flex-end;
+  }
+
+  .cid-u6MbAsct8PEE .mbr-row {
+      -webkit-justify-content: center;
+      justify-content: center;
+  }
+
+  .cid-u6MbAsct8PEE .content-wrap {
+      width: 100%;
+  }
+}
+
+.cid-u6MbAsct8PEE .mbr-section-title,
+.cid-u6MbAsct8PEE .mbr-section-subtitle {
+  text-align: center;
+}
+
+.cid-u6MbAsct8PEE .mbr-text,
+.cid-u6MbAsct8PEE .mbr-section-btn {
+  text-align: center;
+}
+
+/* Hero Section - Talent */
+
+.cid-u6MbAsct8PTT {
+  display: flex;
+  background-image: url("../assets/bg/bg_talent.jpg");
+}
+
+.cid-u6MbAsct8PTT .mbr-overlay {
+  background-color: #000000;
+  opacity: 0.5;
+}
+
+@media (min-width: 768px) {
+  .cid-u6MbAsct8PTT {
+      align-items: flex-end;
+  }
+
+  .cid-u6MbAsct8PTT .row {
+      justify-content: center;
+  }
+
+  .cid-u6MbAsct8PTT .content-wrap {
+      padding: 1rem 3rem;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .cid-u6MbAsct8PTT .content-wrap {
+      min-width: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .cid-u6MbAsct8PTT {
+      -webkit-align-items: center;
+      align-items: flex-end;
+  }
+
+  .cid-u6MbAsct8PTT .mbr-row {
+      -webkit-justify-content: center;
+      justify-content: center;
+  }
+
+  .cid-u6MbAsct8PTT .content-wrap {
+      width: 100%;
+  }
+}
+
+.cid-u6MbAsct8PTT .mbr-section-title,
+.cid-u6MbAsct8PTT .mbr-section-subtitle {
+  text-align: center;
+}
+
+.cid-u6MbAsct8PTT .mbr-text,
+.cid-u6MbAsct8PTT .mbr-section-btn {
+  text-align: center;
+}
+
+/* About Us */
+.cid-u6MbAscVS7 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: #ffffff;
+}
+
+.cid-u6MbAscVS7 .mbr-text {
+  color: #000000;
+}
+
+.cid-u6MbAscVS7 .mbr-section-subtitle {
+  color: #000000;
+}
+
+.cid-u6MbAscVS7 .mbr-section-title {
+  color: #000000;
+}
+
+/* Member */
+.section-from-gpt {
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  background-color: #ffffff;
+}
+
+.section-from-gpt .item-subtitle {
+  line-height: 1.2;
+  color: #000000;
+  text-align: center;
+}
+
+.section-from-gpt img,
+.section-from-gpt .item-img {
+  width: 100%;
+  height: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.section-from-gpt .item:focus,
+.section-from-gpt span:focus {
+  outline: none;
+}
+
+.section-from-gpt .item {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 767px) {
+  .section-from-gpt .item {
+      margin-bottom: 1rem;
+  }
+}
+
+.section-from-gpt .item-wrapper {
+  position: relative;
+  border-radius: 4px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.section-from-gpt .mbr-section-btn {
+  margin-top: auto !important;
+}
+
+.section-from-gpt .mbr-section-title {
+  color: #000000;
+}
+
+.section-from-gpt .mbr-text,
+.section-from-gpt .mbr-section-btn {
+  color: #000000;
+  text-align: center;
+}
+
+.section-from-gpt .item-title {
+  color: #000000;
+}
+
+.section-from-gpt .content-head {
+  max-width: 800px;
+}
+
+/* Program Kerja  */
+.section-from-gpt-sub {
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  background-color: transparent;
+}
+
+.section-from-gpt-sub .mbr-fallback-image.disabled {
+  display: none;
+}
+
+.section-from-gpt-sub .mbr-fallback-image {
+  display: block;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.section-from-gpt-sub .item-mb {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 767px) {
+  .section-from-gpt-sub .item-mb {
+      margin-bottom: 1rem;
+  }
+}
+
+.section-from-gpt-sub .item-wrapper {
+  background: #ffffff;
+  padding: 2.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .section-from-gpt-sub .item-wrapper {
+      padding: 2rem 1.5rem;
+      margin-bottom: 0rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-from-gpt-sub .item-wrapper {
+      padding: 2rem 1.5rem;
+      margin-bottom: 1rem;
+  }
+}
+
+.section-from-gpt-sub .mbr-section-title {
+  color: #000000;
+}
+
+.section-from-gpt-sub .mbr-section-subtitle {
+  color: #000000;
+}
+
+.section-from-gpt-sub .card-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.section-from-gpt-sub .card-box .item-footer {
+  margin-top: auto;
+}
+
+.section-from-gpt-sub .content-head {
+  max-width: 800px;
+}
+
+.section-from-gpt-sub .card-title,
+.section-from-gpt-sub .iconfont-wrapper {
+  text-align: center;
+}
+
+.section-from-gpt-sub .card-text,
+.section-from-gpt-sub .item .mbr-section-btn {
+  text-align: center;
+}
+
