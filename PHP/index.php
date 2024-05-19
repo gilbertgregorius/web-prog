@@ -103,10 +103,10 @@ Jonathan Febrian Handoyo - 222102303
                                     <i class="fa fa-shopping-cart"></i>
                                 </a>
                             </li>';
-                        echo '<li class="col col-auto nav-item">
-                                <a class="nav-link" href="#" rel="nofollow">
+                        echo '<li class="col col-auto nav-link">
+                                
                                     <i class="fa fa-wallet"></i> Rp50.000, -
-                                </a>
+                                
                              </li>';
                         echo '<li class="col nav-item">
                                 <a class="nav-link" href="Sign\logout.php" rel="nofollow">

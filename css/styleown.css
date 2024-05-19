@@ -532,3 +532,7 @@ footer {
   text-align: center;
 }
 
+.banner {
+  background-image: url(../assets/bg/bg_shop.jpg);
+  background-blend-mode: overlay;
+}

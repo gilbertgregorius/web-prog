@@ -57,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['name'] = $name;
         $_SESSION['balance'] = $cpay;
         $_SESSION['nim'] = $nim;
+        
         echo "<h5>Successful Login!</h5>";
     } catch (Exception $e) {
         echo "<h5>" . $e->getMessage() . "</h5>";

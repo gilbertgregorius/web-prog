@@ -37,10 +37,10 @@
                         <a class="nav-link active" aria-current="page" href="../PHP/index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#learn-more">About</a>
+                        <a class="nav-link" href="../PHP/index.php#learn-more">About</a>
                     </0li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="../PHP/index.php#contact">Contact</a>
                     </li>
                     </li>
                     <li class="nav-item dropdown">
@@ -48,9 +48,9 @@
                             Our Division
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="events.html">Events</a></li>
-                            <li><a class="dropdown-item" href="ministry.html">Ministry</a></li>
-                            <li><a class="dropdown-item" href="talent.html">Talent</a></li>
+                            <li><a class="dropdown-item" href="../html/events.html">Events</a></li>
+                            <li><a class="dropdown-item" href="../html/ministry.html">Ministry</a></li>
+                            <li><a class="dropdown-item" href="../html/talent.html">Talent</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="https://calvin.ac.id" target="_blank">Our Campus</a></li>
                         </ul>
@@ -136,12 +136,12 @@
                         <!-- Sale badge-->
                         <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/airjordan.jpg" alt="..." />
+                        <img class="card-img-top" src="../assets/products/product_1.jpg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Air Jordan</h5>
+                                <h5 class="fw-bolder">Pulpen Gel Hitam</h5>
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -152,8 +152,8 @@
                                     <p>(93)</p>
                                 </div>
                                 <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">Rp1.699.000, -</span>
-                                Rp1.099.000, -
+                                <span class="text-muted text-decoration-line-through">Rp11.000, -</span>
+                                Rp8.000, -
                             </div>
                         </div>
                         <!-- Product actions-->
@@ -169,12 +169,12 @@
                         <!-- Sale badge-->
                         <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/product-2.jpg" alt="..." />
+                        <img class="card-img-top" src="../assets/products/product_2.jpg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Product 2</h5>
+                                <h5 class="fw-bolder">A4 Textbook</h5>
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -185,8 +185,8 @@
                                     <p>(52)</p>
                                 </div>
                                 <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">Rp2.000.000, -</span>
-                                Rp1.799.000, -
+                                <span class="text-muted text-decoration-line-through">Rp39.000, -</span>
+                                Rp24.000, -
                             </div>
                         </div>
                         <!-- Product actions-->
@@ -202,12 +202,12 @@
                         <!-- Sale badge-->
                         <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/product-3.jpg" alt="..." />
+                        <img class="card-img-top" src="../assets/products/product_3.jpg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Product 3</h5>
+                                <h5 class="fw-bolder">Penggaris Plastik 30cm</h5>
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -218,8 +218,8 @@
                                     <p>(28)</p>
                                 </div>
                                 <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">Rp2.999.000, -</span>
-                                Rp1.999.000, -
+                                <span class="text-muted text-decoration-line-through">Rp5.000, -</span>
+                                Rp4.000, -
                             </div>
                         </div>
                         <!-- Product actions-->
@@ -233,12 +233,12 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/product-4.jpg" alt="..." />
+                        <img class="card-img-top" src="../assets/products/product_4.jpg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Product 4</h5>
+                                <h5 class="fw-bolder">Pensil 2B</h5>
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -249,132 +249,12 @@
                                     <p>(11)</p>
                                 </div>
                                 <!-- Product price-->
-                                Rp899.000, -
+                                Rp2.000, -
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="buy.php?item_id=1">Buy Now</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 5 -->
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/product-5.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Product 5</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <p>(5)</p>
-                                </div>
-                                <!-- Product price-->
-                                Rp1.000, -
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Buy Now</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 6 -->
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/product-6.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Product 6</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <p>(6)</p>
-                                </div>
-                                <!-- Product price-->
-                                Rp899.000, -
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Buy Now</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 7 -->
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/product-7.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Product 7</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <p>(8)</p>
-                                </div>
-                                <!-- Product price-->
-                                Rp199.000, -
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Buy Now</a></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 8 -->
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/product-8.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Product 8</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star"></div>
-                                    <p>(1)</p>
-                                </div>
-                                <!-- Product price-->
-                                Rp299.000, -
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Buy Now</a></div>
                         </div>
                     </div>
                 </div>
