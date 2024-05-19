@@ -3,7 +3,7 @@ Gilbert Gregorius Kirana - 222102119
 Gery Yulianto - 222101862
 Jonathan Febrian Handoyo - 222102303
  -->
- <?php session_start();?>
+ <?php include '../PHP/header.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,96 +28,6 @@ Jonathan Febrian Handoyo - 222102303
     <link href="../css/styleown.css" rel="stylesheet">
     
 </head>
-
-<header>
-    <!-- Navbar  -->
-    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #800606cd;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="../assets/logo/bem.png" alt="BEM Logo" style="width: 2em;">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#learn-more">About</a>
-                    </0li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Our Division
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="events.html">Events</a></li>
-                            <li><a class="dropdown-item" href="ministry.html">Ministry</a></li>
-                            <li><a class="dropdown-item" href="talent.html">Talent</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="https://calvin.ac.id" target="_blank">Our Campus</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.youtube.com/@CalvinInstituteofTechnology" rel="nofollow" target="_blank">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.facebook.com/" rel="nofollow" target="_blank">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://x.com/" rel="nofollow" target="_blank">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <?php 
-                    
-                    if (isset($_SESSION['name'])) {
-                        $name = $_SESSION['name'];
-                        $cpay = $_SESSION['balance'];
-                        // Login
-                        echo '<li class="nav-item">
-                                <a class="nav-link" href="" rel="nofollow">
-                                    <i class="fa fa-user"></i>
-                                </a>
-                                </li>';
-                        echo '<li>' . $name . '</li>';
-                        echo '<li class="nav-item">
-                                <a class="nav-link" href="" rel="nofollow">
-                                    <i class="fa fa-wallet"></i>
-                                </a>
-                                <a class="nav-link" href="Sign\logout.php" rel="nofollow">
-                                    <b> Logout </b>
-                                </a>
-                                </li>';
-                        echo '<li>' . $cpay . '</li>';
-
-                    } else {
-                        echo '<li class="nav-item">
-                                <a class="nav-link" href="Sign\sign_in_user_form.html" rel="nofollow">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                </a>
-                                <a class="nav-link" href="Sign\sign_in_user_form.html" rel="nofollow">
-                                    <b> Login </b>
-                                </a>
-                              </li>';
-                    }
-                    ?>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
 
 <body class="d-flex flex-column h-100">
     <!-- Part 0 | Carousel -->
@@ -230,7 +140,7 @@ Jonathan Febrian Handoyo - 222102303
                     <div class="card-body">
                         <h5 class="card-title">Ministry Division</h5>
                         <p class="card-text">The Ministry Division focuses on spiritual growth and pastoral care, organizing prayer meetings, religious gatherings, and outreach programs to foster a supportive community and deepen students' spiritual beliefs.</p>
-                        <a href="ministry.html" class="btn btn-primary border-0" style="background-color: #800706;">More</a>
+                        <a href="../html/ministry.html" class="btn btn-primary border-0" style="background-color: #800706;">More</a>
                     </div>
                 </div>
             </div>
@@ -241,7 +151,7 @@ Jonathan Febrian Handoyo - 222102303
                     <div class="card-body">
                         <h5 class="card-title">Events Division</h5>
                         <p class="card-text">The Events Division plans diverse activities to enhance campus life, including cultural festivals, academic conferences, and social gatherings, promoting unity, collaboration, and school spirit.</p>
-                        <a href="events.html" class="btn btn-primary border-0" style="background-color: #800706;">More</a>
+                        <a href="../html/events.html" class="btn btn-primary border-0" style="background-color: #800706;">More</a>
                     </div>
                 </div>
             </div>
@@ -252,12 +162,13 @@ Jonathan Febrian Handoyo - 222102303
                     <div class="card-body">
                         <h5 class="card-title">Talent Division</h5>
                         <p class="card-text">The Talent Division recognizes and develops student talents through talent shows, workshops, and training programs, empowering students to reach their full potential and make meaningful contributions to the community.</p>
-                        <a href="talent.html" class="btn btn-primary border-0" style="background-color: #800706;">More</a>
+                        <a href="../html/talent.html" class="btn btn-primary border-0" style="background-color: #800706;">More</a>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Contact  -->
         <!-- Contact  -->
         <div class="container px-5 pb-5 pt-5" id="contact">
             <div class="row gx-5 align-items-center">
@@ -272,42 +183,61 @@ Jonathan Febrian Handoyo - 222102303
                     <!-- Hubungi Kami -->
                     <div class="col-lg-10 mb-5">
                         <h5 class="font-weight-light">Hubungi Kami</h5>
-                        <form method="POST" id="contactForm" name="contactForm">
+                        <form method="POST" action="https://api.web3forms.com/submit" id="contactForm" name="contactForm">
+                            <input type="hidden" name="access_key" value="a92b1116-7e98-47b7-9c0d-84656a1ef1a6">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                                     </div>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+                                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
                                     </div>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <div class="form-group">
-                                        <textarea class="form-control" id="message" name="message" rows="7" placeholder="Message"></textarea>
+                                        <textarea class="form-control" id="message" name="message" rows="7" placeholder="Message" required></textarea>
                                     </div>
                                 </div>
+                                <!-- <div class="h-captcha" data-captcha="true"></div> -->
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary fw-bold"
-                                            style="background-color: #800706;">Send Message <small>*Dont Click</small></button>
+                                        <button type="submit" class="btn btn-primary fw-bold border-0" style="background-color: #800706;">Send Message</button>
                                         <div class="submitting"></div>
                                     </div>
                                 </div>
                             </div>
                         </form>
+                        <script src="https://web3forms.com/client/script.js" async defer></script>
                     </div>
                 </section>
             </div>
         </div>
     </section>
+
+<!-- <script src='https://smtpjs.com/v3/smtp.js'></script>
+<script>
+    function sendEnail(){
+        Email.send({
+            Host: "smtp.gmail.com",
+            Username: "dimas.sepuluhipatiga.1920@gmail.com",
+            Password: "dimasohdimas24",
+            To: "gilbertgregorius@gmail.com",
+            From: document.getElementById('emailTo').value,
+            Subject: document.getElementById('subject').value,
+            Body:"Name: " + document.getElementById('name').value + document.getElementById('message').value
+        }).then(
+            message => alert('Email Sent Successfully')
+        )
+    }
+</script> -->
 </body>
 
 <!-- Part 5 | Footer -->

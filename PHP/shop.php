@@ -1,3 +1,33 @@
+<?php 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $item_id = $_POST['item_id'];
+    if (isset($_POST['delete'])) {
+        header("Location: ../PHP/deletestock.php?item_id=" . urlencode($item_id));
+        exit();
+    } else if (isset($_POST['update'])) {
+        header("Location: ../PHP/updatestock.php?item_id=" . urlencode($item_id));
+        exit();
+    }
+}
+
+include '../PHP/header.php';
+$servername = "localhost";
+$username = "root";
+$password = ""; 
+$dbname = "bem_db";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Handle Error first
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$i_id = 1;
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,73 +51,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
 </head>
 
-<header>
-    <!-- Navbar  -->
-    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #800606cd;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="../PHP/index.php">
-                <img src="../assets/logo/bem.png" alt="BEM Logo" style="width: 2em;">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../PHP/index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#learn-more">About</a>
-                    </0li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Our Division
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="events.html">Events</a></li>
-                            <li><a class="dropdown-item" href="ministry.html">Ministry</a></li>
-                            <li><a class="dropdown-item" href="talent.html">Talent</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="https://calvin.ac.id" target="_blank">Our Campus</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="form.html" rel="nofollow" target="_blank">
-                            <i class="fas fa-sign-in-alt"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shop.html" rel="nofollow">
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.youtube.com/@CalvinInstituteofTechnology" rel="nofollow" target="_blank">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.facebook.com/" rel="nofollow" target="_blank">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://x.com/" rel="nofollow" target="_blank">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
-
 <body>
     <!-- Header-->
     <div class="bg-dark py-5 banner">
@@ -106,17 +69,55 @@
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 <!-- Product 1 -->
-                <div class="col mb-5">
+                <?php 
+                    $item_exist = true;
+                    $sql = "SELECT * from item_tb WHERE item_id='$i_id'";
+                    $res = $conn->query($sql);
+                    if (!$res->num_rows > 0) {
+                        $item_exist = false;
+                    }
+                    $displayStyle = $item_exist ? '' : 'display: none;';
+                    $res -> free();
+                ?>
+                <div class="col mb-5" style="<?php echo $displayStyle; ?>">
                     <div class="card h-100">
                         <!-- Sale badge-->
-                        <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <div class="badge bg-warning text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <?php 
+                        if (isset($_SESSION['admin'])) {
+                            echo '<form method="post" class="position-absolute" style="top: 2.5rem; right: 0.5rem;">
+                                <input type="hidden" name="item_id" value="1">
+                                <button type="submit" name="update" class="badge bg-success text-white border-0" style="cursor: pointer;">Update</button>
+                            </form>
+                            <form method="post" class="position-absolute" style="top: 4.5rem; right: 0.5rem;">
+                                <input type="hidden" name="item_id" value="1">
+                                <button type="submit" name="delete" class="badge bg-danger text-white border-0" style="cursor: pointer;">Delete</button>
+                            </form>';
+                        };
+                        ?>
                         <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/airjordan.jpg" alt="..." />
+                        <img class="card-img-top" src="../assets/products/pulpengelbiru.jpg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Air Jordan</h5>
+                                <h5 class="fw-bolder">
+                                <?php
+                                $sql = "SELECT nama_item FROM item_tb WHERE item_id = '$i_id'";
+                                $result = $conn->query($sql);
+                                if ($result) {
+                                    $row = $result->fetch_assoc();
+                                    if ($row) {
+                                        echo $row['nama_item'];
+                                    } else {
+                                        echo "No data found for item_id = $i_id";
+                                    }
+                                    $result->free();
+                                } else {
+                                    echo "Query failed: " . $conn->error;
+                                }
+                                ?>
+                                </h5>
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -127,29 +128,84 @@
                                     <p>(93)</p>
                                 </div>
                                 <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">Rp1.699.000, -</span>
-                                Rp1.099.000, -
+                                <span class="text-muted text-decoration-line-through">Rp9.000, -</span>
+                                <?php
+                                $sql = "SELECT harga FROM item_tb WHERE item_id = '$i_id'";
+                                $result = $conn->query($sql);
+                                if ($result) {
+                                    $row = $result->fetch_assoc();
+                                    if ($row) {
+                                        echo 'Rp ' .$row['harga'];
+                                    } else {
+                                        echo "No data found for item_id = $i_id";
+                                    }
+                                    $result->free();
+                                } else {
+                                    echo "Query failed: " . $conn->error;
+                                }
+
+                                $i_id++;
+                                ?>
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="buy.php?item_id=4">Buy Now</a></div>
+                            <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="buy.php?item_id=1">Buy Now</a></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 2 -->
-                <div class="col mb-5">
+
+                <?php 
+                    $item_exist = true;
+                    $sql = "SELECT * from item_tb WHERE item_id='$i_id'";
+                    $res = $conn->query($sql);
+                    if (!$res->num_rows > 0) {
+                        $item_exist = false;
+                    }
+                    $displayStyle = $item_exist ? '' : 'display: none;';
+                    $res -> free();
+                ?>
+                <div class="col mb-5" style="<?php echo $displayStyle; ?>">
                     <div class="card h-100">
                         <!-- Sale badge-->
-                        <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <div class="badge bg-warning text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <?php 
+                        if (isset($_SESSION['admin'])) {
+                            echo '<form method="post" class="position-absolute" style="top: 2.5rem; right: 0.5rem;">
+                                <input type="hidden" name="item_id" value="2">
+                                <button type="submit" name="update" class="badge bg-success text-white border-0" value="2" style="cursor: pointer;">Update</button>
+                            </form>
+                            <form method="post" class="position-absolute" style="top: 4.5rem; right: 0.5rem;">
+                                <input type="hidden" name="item_id" value="2">
+                                <button type="submit" name="delete" class="badge bg-danger text-white border-0" value="2" style="cursor: pointer;">Delete</button>
+                            </form>';
+                        };
+                        ?>
                         <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/product-2.jpg" alt="..." />
+                        <img class="card-img-top" src="../assets/products/bukutulisa4100lembar.jpg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Product 2</h5>
+                                <h5 class="fw-bolder">
+                                <?php
+                                $sql = "SELECT nama_item FROM item_tb WHERE item_id = '$i_id'";
+                                $result = $conn->query($sql);
+                                if ($result) {
+                                    $row = $result->fetch_assoc();
+                                    if ($row) {
+                                        echo $row['nama_item'];
+                                    } else {
+                                        echo "No data found for item_id = $i_id";
+                                    }
+                                    $result->free();
+                                } else {
+                                    echo "Query failed: " . $conn->error;
+                                }
+                                ?>
+                                </h5>
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -161,28 +217,82 @@
                                 </div>
                                 <!-- Product price-->
                                 <span class="text-muted text-decoration-line-through">Rp2.000.000, -</span>
-                                Rp1.799.000, -
+                                <?php
+                                $sql = "SELECT harga FROM item_tb WHERE item_id = '$i_id'";
+                                $result = $conn->query($sql);
+                                if ($result) {
+                                    $row = $result->fetch_assoc();
+                                    if ($row) {
+                                        echo 'Rp ' .$row['harga'];
+                                    } else {
+                                        echo "No data found for item_id = $i_id";
+                                    }
+                                    $result->free();
+                                } else {
+                                    echo "Query failed: " . $conn->error;
+                                }
+
+                                $i_id++;
+                                ?>
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="buy.php?item_id=3">Buy Now</a></div>
+                            <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="buy.php?item_id=2">Buy Now</a></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 3 -->
-                <div class="col mb-5">
+                <?php 
+                    $item_exist = true;
+                    $sql = "SELECT * from item_tb WHERE item_id='$i_id'";
+                    $res = $conn->query($sql);
+                    if (!$res->num_rows > 0) {
+                        $item_exist = false;
+                    }
+                    $displayStyle = $item_exist ? '' : 'display: none;';
+                    $res -> free();
+                ?>
+                <div class="col mb-5" style="<?php echo $displayStyle; ?>">
                     <div class="card h-100">
                         <!-- Sale badge-->
-                        <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <div class="badge bg-warning text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <?php 
+                        if (isset($_SESSION['admin'])) {
+                            echo '<form method="post" class="position-absolute" style="top: 2.5rem; right: 0.5rem;">
+                                <input type="hidden" name="item_id" value="3">
+                                <button type="submit" name="update" class="badge bg-success text-white border-0" value="3" style="cursor: pointer;">Update</button>
+                            </form>
+                            <form method="post" class="position-absolute" style="top: 4.5rem; right: 0.5rem;">
+                                <input type="hidden" name="item_id" value="3">
+                                <button type="submit" name="delete" class="badge bg-danger text-white border-0" value="3" style="cursor: pointer;">Delete</button>
+                            </form>';
+                        };
+                        ?>
                         <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/product-3.jpg" alt="..." />
+                        <img class="card-img-top" src="../assets/products/penggarisplastik30cm.jpg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Product 3</h5>
+                                <h5 class="fw-bolder">
+                                <?php
+                                $sql = "SELECT nama_item FROM item_tb WHERE item_id = '$i_id'";
+                                $result = $conn->query($sql);
+                                if ($result) {
+                                    $row = $result->fetch_assoc();
+                                    if ($row) {
+                                        echo $row['nama_item'];
+                                    } else {
+                                        echo "No data found for item_id = $i_id";
+                                    }
+                                    $result->free();
+                                } else {
+                                    echo "Query failed: " . $conn->error;
+                                }
+                                ?>
+                                </h5>
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -194,26 +304,80 @@
                                 </div>
                                 <!-- Product price-->
                                 <span class="text-muted text-decoration-line-through">Rp2.999.000, -</span>
-                                Rp1.999.000, -
+                                <?php
+                                $sql = "SELECT harga FROM item_tb WHERE item_id = '$i_id'";
+                                $result = $conn->query($sql);
+                                if ($result) {
+                                    $row = $result->fetch_assoc();
+                                    if ($row) {
+                                        echo 'Rp ' .$row['harga'];
+                                    } else {
+                                        echo "No data found for item_id = $i_id";
+                                    }
+                                    $result->free();
+                                } else {
+                                    echo "Query failed: " . $conn->error;
+                                }
+
+                                $i_id++;
+                                ?>
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="buy.php?item_id=2">Buy Now</a></div>
+                            <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="buy.php?item_id=3">Buy Now</a></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 4 -->
-                <div class="col mb-5">
+                <?php 
+                    $item_exist = true;
+                    $sql = "SELECT * from item_tb WHERE item_id='$i_id'";
+                    $res = $conn->query($sql);
+                    if (!$res->num_rows > 0) {
+                        $item_exist = false;
+                    }
+                    $displayStyle = $item_exist ? '' : 'display: none;';
+                    $res -> free();
+                ?>
+                <div class="col mb-5" style="<?php echo $displayStyle; ?>">
                     <div class="card h-100">
+                        <?php 
+                            if (isset($_SESSION['admin'])) {
+                                echo '<form method="post" class="position-absolute" style="top: 0.5rem; right: 0.5rem;">
+                                    <input type="hidden" name="item_id" value="4">
+                                    <button type="submit" name="update" class="badge bg-success text-white border-0" value="4" style="cursor: pointer;">Update</button>
+                                </form>
+                                <form method="post" class="position-absolute" style="top: 2.5rem; right: 0.5rem;">
+                                    <input type="hidden" name="item_id" value="4">
+                                    <button type="submit" name="delete" class="badge bg-danger text-white border-0" value="4" style="cursor: pointer;">Delete</button>
+                                </form>';                            
+                            };
+                        ?>
                         <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/product-4.jpg" alt="..." />
+                        <img class="card-img-top" src="../assets/products/penghapus10cm.jpg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Product 4</h5>
+                                <h5 class="fw-bolder">
+                                <?php
+                                $sql = "SELECT nama_item FROM item_tb WHERE item_id = '$i_id'";
+                                $result = $conn->query($sql);
+                                if ($result) {
+                                    $row = $result->fetch_assoc();
+                                    if ($row) {
+                                        echo $row['nama_item'];
+                                    } else {
+                                        echo "No data found for item_id = $i_id";
+                                    }
+                                    $result->free();
+                                } else {
+                                    echo "Query failed: " . $conn->error;
+                                }
+                                ?>
+                                </h5>
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -224,26 +388,80 @@
                                     <p>(11)</p>
                                 </div>
                                 <!-- Product price-->
-                                Rp899.000, -
+                                <?php
+                                $sql = "SELECT harga FROM item_tb WHERE item_id = '$i_id'";
+                                $result = $conn->query($sql);
+                                if ($result) {
+                                    $row = $result->fetch_assoc();
+                                    if ($row) {
+                                        echo 'Rp ' .$row['harga'];
+                                    } else {
+                                        echo "No data found for item_id = $i_id";
+                                    }
+                                    $result->free();
+                                } else {
+                                    echo "Query failed: " . $conn->error;
+                                }
+
+                                $i_id++;
+                                ?>
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="buy.php?item_id=1">Buy Now</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="buy.php?item_id=4">Buy Now</a></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 5 -->
-                <div class="col mb-5">
+                <?php 
+                    $item_exist = true;
+                    $sql = "SELECT * from item_tb WHERE item_id='$i_id'";
+                    $res = $conn->query($sql);
+                    if (!$res->num_rows > 0) {
+                        $item_exist = false;
+                    }
+                    $displayStyle = $item_exist ? '' : 'display: none;';
+                    $res -> free();
+                ?>
+                <div class="col mb-5" style="<?php echo $displayStyle; ?>">
                     <div class="card h-100">
+                        <?php 
+                            if (isset($_SESSION['admin'])) {
+                                echo '<form method="post" class="position-absolute" style="top: 0.5rem; right: 0.5rem;">
+                                    <input type="hidden" name="item_id" value="5">
+                                    <button type="submit" name="update" class="badge bg-success text-white border-0" style="cursor: pointer;">Update</button>
+                                </form>
+                                <form method="post" class="position-absolute" style="top: 2.5rem; right: 0.5rem;">
+                                    <input type="hidden" name="item_id" value="5">
+                                    <button type="submit" name="delete" class="badge bg-danger text-white border-0" style="cursor: pointer;">Delete</button>
+                                </form>';                            
+                            };
+                        ?>
                         <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/product-5.jpg" alt="..." />
+                        <img class="card-img-top" src="../assets/products/pensil2b.jpg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Product 5</h5>
+                                <h5 class="fw-bolder">
+                                <?php
+                                $sql = "SELECT nama_item FROM item_tb WHERE item_id = '$i_id'";
+                                $result = $conn->query($sql);
+                                if ($result) {
+                                    $row = $result->fetch_assoc();
+                                    if ($row) {
+                                        echo $row['nama_item'];
+                                    } else {
+                                        echo "No data found for item_id = $i_id";
+                                    }
+                                    $result->free();
+                                } else {
+                                    echo "Query failed: " . $conn->error;
+                                }
+                                ?>
+                                </h5>
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -254,26 +472,80 @@
                                     <p>(5)</p>
                                 </div>
                                 <!-- Product price-->
-                                Rp1.000, -
+                                <?php
+                                $sql = "SELECT harga FROM item_tb WHERE item_id = '$i_id'";
+                                $result = $conn->query($sql);
+                                if ($result) {
+                                    $row = $result->fetch_assoc();
+                                    if ($row) {
+                                        echo 'Rp ' .$row['harga'];
+                                    } else {
+                                        echo "No data found for item_id = $i_id";
+                                    }
+                                    $result->free();
+                                } else {
+                                    echo "Query failed: " . $conn->error;
+                                }
+
+                                $i_id++;
+                                ?>
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Buy Now</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="buy.php?item_id=5">Buy Now</a></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 6 -->
-                <div class="col mb-5">
+                <?php 
+                    $item_exist = true;
+                    $sql = "SELECT * from item_tb WHERE item_id='$i_id'";
+                    $res = $conn->query($sql);
+                    if (!$res->num_rows > 0) {
+                        $item_exist = false;
+                    }
+                    $displayStyle = $item_exist ? '' : 'display: none;';
+                    $res -> free();
+                ?>
+                <div class="col mb-5" style="<?php echo $displayStyle; ?>">
                     <div class="card h-100">
+                        <?php 
+                            if (isset($_SESSION['admin'])) {
+                                echo '<form method="post" class="position-absolute" style="top: 0.5rem; right: 0.5rem;">
+                                    <input type="hidden" name="item_id" value="6">
+                                    <button type="submit" name="update" class="badge bg-success text-white border-0" style="cursor: pointer;">Update</button>
+                                </form>
+                                <form method="post" class="position-absolute" style="top: 2.5rem; right: 0.5rem;">
+                                    <input type="hidden" name="item_id" value="6">
+                                    <button type="submit" name="delete" class="badge bg-danger text-white border-0" style="cursor: pointer;">Delete</button>
+                                </form>';                            
+                            };
+                        ?>
                         <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/product-6.jpg" alt="..." />
+                        <img class="card-img-top" src="../assets/products/rautanpensil.jpg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Product 6</h5>
+                                <h5 class="fw-bolder">
+                                <?php
+                                $sql = "SELECT nama_item FROM item_tb WHERE item_id = '$i_id'";
+                                $result = $conn->query($sql);
+                                if ($result) {
+                                    $row = $result->fetch_assoc();
+                                    if ($row) {
+                                        echo $row['nama_item'];
+                                    } else {
+                                        echo "No data found for item_id = $i_id";
+                                    }
+                                    $result->free();
+                                } else {
+                                    echo "Query failed: " . $conn->error;
+                                }
+                                ?>
+                                </h5>
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -284,26 +556,80 @@
                                     <p>(6)</p>
                                 </div>
                                 <!-- Product price-->
-                                Rp899.000, -
+                                <?php
+                                $sql = "SELECT harga FROM item_tb WHERE item_id = '$i_id'";
+                                $result = $conn->query($sql);
+                                if ($result) {
+                                    $row = $result->fetch_assoc();
+                                    if ($row) {
+                                        echo 'Rp ' .$row['harga'];
+                                    } else {
+                                        echo "No data found for item_id = $i_id";
+                                    }
+                                    $result->free();
+                                } else {
+                                    echo "Query failed: " . $conn->error;
+                                }
+
+                                $i_id++;
+                                ?>
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Buy Now</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="buy.php?item_id=6">Buy Now</a></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 7 -->
-                <div class="col mb-5">
+                <?php 
+                    $item_exist = true;
+                    $sql = "SELECT * from item_tb WHERE item_id='$i_id'";
+                    $res = $conn->query($sql);
+                    if (!$res->num_rows > 0) {
+                        $item_exist = false;
+                    }
+                    $displayStyle = $item_exist ? '' : 'display: none;';
+                    $res -> free();
+                ?>
+                <div class="col mb-5" style="<?php echo $displayStyle; ?>">
                     <div class="card h-100">
+                        <?php 
+                            if (isset($_SESSION['admin'])) {
+                                echo '<form method="post" class="position-absolute" style="top: 0.5rem; right: 0.5rem;">
+                                    <input type="hidden" name="item_id" value="7">
+                                    <button type="submit" name="update" class="badge bg-success text-white border-0" style="cursor: pointer;">Update</button>
+                                </form>
+                                <form method="post" class="position-absolute" style="top: 2.5rem; right: 0.5rem;">
+                                    <input type="hidden" name="item_id" value="7">
+                                    <button type="submit" name="delete" class="badge bg-danger text-white border-0" style="cursor: pointer;">Delete</button>
+                                </form>';                            
+                            };
+                        ?>
                         <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/product-7.jpg" alt="..." />
+                        <img class="card-img-top" src="../assets/products/tipexcair.jpg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Product 7</h5>
+                                <h5 class="fw-bolder">
+                                <?php
+                                $sql = "SELECT nama_item FROM item_tb WHERE item_id = '$i_id'";
+                                $result = $conn->query($sql);
+                                if ($result) {
+                                    $row = $result->fetch_assoc();
+                                    if ($row) {
+                                        echo $row['nama_item'];
+                                    } else {
+                                        echo "No data found for item_id = $i_id";
+                                    }
+                                    $result->free();
+                                } else {
+                                    echo "Query failed: " . $conn->error;
+                                }
+                                ?>
+                                </h5>
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -314,26 +640,80 @@
                                     <p>(8)</p>
                                 </div>
                                 <!-- Product price-->
-                                Rp199.000, -
+                                <?php
+                                $sql = "SELECT harga FROM item_tb WHERE item_id = '$i_id'";
+                                $result = $conn->query($sql);
+                                if ($result) {
+                                    $row = $result->fetch_assoc();
+                                    if ($row) {
+                                        echo 'Rp ' .$row['harga'];
+                                    } else {
+                                        echo "No data found for item_id = $i_id";
+                                    }
+                                    $result->free();
+                                } else {
+                                    echo "Query failed: " . $conn->error;
+                                }
+
+                                $i_id++;
+                                ?>
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Buy Now</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="buy.php?item_id=7">Buy Now</a></div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Product 8 -->
-                <div class="col mb-5">
+                <?php 
+                    $item_exist = true;
+                    $sql = "SELECT * from item_tb WHERE item_id='$i_id'";
+                    $res = $conn->query($sql);
+                    if (!$res->num_rows > 0) {
+                        $item_exist = false;
+                    }
+                    $displayStyle = $item_exist ? '' : 'display: none;';
+                    $res -> free();
+                ?>
+                <div class="col mb-5" style="<?php echo $displayStyle; ?>">
                     <div class="card h-100">
+                        <?php 
+                            if (isset($_SESSION['admin'])) {
+                                echo '<form method="post" class="position-absolute" style="top: 0.5rem; right: 0.5rem;">
+                                    <input type="hidden" name="item_id" value="8">
+                                    <button type="submit" name="update" class="badge bg-success text-white border-0" style="cursor: pointer;">Update</button>
+                                </form>
+                                <form method="post" class="position-absolute" style="top: 2.5rem; right: 0.5rem;">
+                                    <input type="hidden" name="item_id" value="8">
+                                    <button type="submit" name="delete" class="badge bg-danger text-white border-0" style="cursor: pointer;">Delete</button>
+                                </form>';
+                            };
+                        ?>
                         <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/product-8.jpg" alt="..." />
+                        <img class="card-img-top" src="../assets/products/bolpoinhitam.jpg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Product 8</h5>
+                                <h5 class="fw-bolder">
+                                <?php
+                                $sql = "SELECT nama_item FROM item_tb WHERE item_id = '$i_id'";
+                                $result = $conn->query($sql);
+                                if ($result) {
+                                    $row = $result->fetch_assoc();
+                                    if ($row) {
+                                        echo $row['nama_item'];
+                                    } else {
+                                        echo "No data found for item_id = $i_id";
+                                    }
+                                    $result->free();
+                                } else {
+                                    echo "Query failed: " . $conn->error;
+                                }
+                                ?>
+                                </h5>
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -344,12 +724,28 @@
                                     <p>(1)</p>
                                 </div>
                                 <!-- Product price-->
-                                Rp299.000, -
+                                <?php
+                                $sql = "SELECT harga FROM item_tb WHERE item_id = '$i_id'";
+                                $result = $conn->query($sql);
+                                if ($result) {
+                                    $row = $result->fetch_assoc();
+                                    if ($row) {
+                                        echo 'Rp ' .$row['harga'];
+                                    } else {
+                                        echo "No data found for item_id = $i_id";
+                                    }
+                                    $result->free();
+                                } else {
+                                    echo "Query failed: " . $conn->error;
+                                }
+
+                                $i_id++;
+                                ?>
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Buy Now</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="buy.php?item_id=8">Buy Now</a></div>
                         </div>
                     </div>
                 </div>
@@ -366,3 +762,23 @@
     <script src="..js/script_shop.js"></script>
 </body>
 </html>
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    // Get all delete buttons
+    var deleteButtons = document.querySelectorAll('.delete-btn');
+
+    // Attach click event listener to each delete button
+    deleteButtons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            // Get the item card associated with the delete button
+            var card = button.closest('.col');
+
+            // Hide the card by setting its display property to 'none'
+            card.style.display = 'none';
+        });
+    });
+});
+
+</script> -->

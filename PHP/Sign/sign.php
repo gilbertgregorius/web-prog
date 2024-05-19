@@ -18,8 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // If user login
         if (isset($_POST['form_user'])) {
             $id = $_POST["NIMValue"];
-            $sql = "SELECT * from user_tb
-                    WHERE nim = '$id' AND u_password = '$pass'";
+            $sql = "SELECT * from user_tb WHERE nim = '$id' AND u_password = '$pass'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -28,42 +27,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $nim = $row['nim'];
                 $result->free();
 
-                $sql = "SELECT * FROM calvin_pay
-                        WHERE nim = '$nim'";
+                $sql = "SELECT * FROM calvin_pay WHERE nim = '$nim'";
                 $res = $conn->query($sql);
                 $row = $res->fetch_assoc();
                 $cpay = $row['balance'];
                 echo $conn->error;
+
+                $is_admin = FALSE;
+                $_SESSION['nim'] = $nim;
             } else {
                 throw new Exception("Username or Password wrong!");
             }
         // If admin login
-        } elseif (isset($_POST['form_admin'])) {
+        } else if (isset($_POST['form_admin'])) {
+            $pass = $_POST["PasswordValue"];
             $id = $_POST["IDValue"];
-            $sql = "SELECT * from admin_tb
-                    WHERE id_admin = '$id' AND a_password = '$pass'";
+            $sql = "SELECT * from admin_tb WHERE id_admin = '$id' AND a_password = '$pass'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
                 $name = "Admin";
                 $cpay = 9999999999;
+
+            $is_admin = TRUE;
+            $_SESSION['admin'] = $is_admin;
             } else {
-                throw new Exception("Username or Password wrong!");
+                echo "Error: " . $conn->error;
+                throw new Exception("Username Password wrong!");
+                
             }
         }
 
         // Set session variables
         $_SESSION['name'] = $name;
         $_SESSION['balance'] = $cpay;
-        $_SESSION['nim'] = $nim;
-        echo "<h5>Successful Login!</h5>";
+        
+        
+        
+        echo '<div class="alert alert-success" role="alert">';
+        echo "Successful Login!";
+        echo '</div>';
     } catch (Exception $e) {
-        echo "<h5>" . $e->getMessage() . "</h5>";
+        echo '<div class="alert alert-danger" role="alert">';
+        echo $e->getMessage();
+        echo '</div>';
     }
-    echo "<h5> You Will be redirected in 3 seconds </h5>";
+    echo '<div class="alert alert-info" role="alert">';
+    echo "You Will be redirected in 3 seconds";
+    echo '</div>';
 }
-$conn -> close();
+$conn->close();
 header("refresh:3;url='..'");
 exit();
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add this to the head section -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <title>Login | Calvin Shop</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+</html>
