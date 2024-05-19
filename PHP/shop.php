@@ -58,13 +58,8 @@
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="form.html" rel="nofollow" target="_blank">
-                            <i class="fas fa-sign-in-alt"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shop.html" rel="nofollow">
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <a class="nav-link" href="shop.php" rel="nofollow">
+                            <i class="fa fa-shopping-cart"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -82,6 +77,36 @@
                             <i class="fab fa-twitter"></i>
                         </a>
                     </li>
+                    <?php 
+                    
+                    if (isset($_SESSION['name'])) {
+                        $name = $_SESSION['name'];
+                        $cpay = $_SESSION['balance'];
+                        // Login
+                        echo '<li class="nav-item">
+                                <a class="nav-link" href="" rel="nofollow">
+                                    <i class="fa fa-user"></i>
+                                </a>
+                                </li>';
+                        echo '<li>' . $name . '</li>';
+                        echo '<li class="nav-item">
+                                <a class="nav-link" href="" rel="nofollow">
+                                    <i class="fa fa-wallet"></i>
+                                </a>
+                                <a class="nav-link" href="Sign\logout.php" rel="nofollow">
+                                    <b> Logout </b>
+                                </a>
+                                </li>';
+                        echo '<li>' . $cpay . '</li>';
+
+                    } else {
+                        echo '<li class="nav-item">
+                                <a class="nav-link" href="Sign\sign_in_user_form.html" rel="nofollow">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>
+                              </li>';
+                    }
+                    ?>
                 </ul>
             </div>
         </div>

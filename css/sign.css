@@ -1,7 +1,7 @@
 body{
-    background-image: url('../assets/bg/bg_sign.jpg');
+    background-image: url('../assets/bg/bg_login.jpg');
     background-repeat: no-repeat;
-    background-size: 210vh;
+    background-size: cover;
     background-position:top;
 }
 strong{
@@ -12,7 +12,7 @@ strong{
     background-color: rgba(255, 255, 255, 0.63);
     border-radius: .5vw;
 }
-.btn-red {
+.btn-red, .btn-red:hover {
     border-color: #800606;
     background-color: #800606;
 }

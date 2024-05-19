@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<h3> Sign up success!</h3>";
             echo "<p> You will be redirected to home page in 3 seconds</p>";
             $sql  = "INSERT INTO calvin_pay
-                    values(NULL, '$nim', 50000)";
+                    values(100, '$nim', 50000)";
             $conn -> query($sql);
         } else {
             echo "<h3> Sign up failed!</h3>";
@@ -39,6 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 $conn -> close();
-header("refresh:3;url='index.php'");
+header("refresh:3;url='../../PHP/'");
 exit();
 ?>

@@ -64,48 +64,56 @@ Jonathan Febrian Handoyo - 222102303
                         </ul>
                     </li>
                 </ul>
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
+                <ul class="row navbar-nav ms-auto">
+                    <li class="col col-3 nav-item">
                         <a class="nav-link" href="https://www.youtube.com/@CalvinInstituteofTechnology" rel="nofollow" target="_blank">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="col col-3 nav-item">
                         <a class="nav-link" href="https://www.facebook.com/" rel="nofollow" target="_blank">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="col col-3 nav-item">
                         <a class="nav-link" href="https://x.com/" rel="nofollow" target="_blank">
                             <i class="fab fa-twitter"></i>
                         </a>
                     </li>
-                    <?php 
-                    
+                </ul>
+                <ul class="row navbar-nav">
+                <?php 
                     if (isset($_SESSION['name'])) {
                         $name = $_SESSION['name'];
                         $cpay = $_SESSION['balance'];
                         // Login
-                        echo '<li class="nav-item">
+                        echo '<li class="col nav-item">
                                 <a class="nav-link" href="" rel="nofollow">
                                     <i class="fa fa-user"></i>
                                 </a>
                                 </li>';
-                        echo '<li>' . $name . '</li>';
-                        echo '<li class="nav-item">
-                                <a class="nav-link" href="" rel="nofollow">
-                                    <i class="fa fa-wallet"></i>
+                        echo '<li class="col col-auto nav-link"> Welcome back, '
+                                    . $name .
+                             '</li>';
+                        echo '<li class="col nav-item">
+                                <a class="nav-link" href="shop.php" rel="nofollow">
+                                    <i class="fa fa-shopping-cart"></i>
                                 </a>
+                            </li>';
+                        echo '<li class="col col-auto nav-item">
+                                <a class="nav-link" href="#" rel="nofollow">
+                                    <i class="fa fa-wallet"></i> Rp50.000, -
+                                </a>
+                             </li>';
+                        echo '<li class="col nav-item">
                                 <a class="nav-link" href="Sign\logout.php" rel="nofollow">
-                                    <b> Logout </b>
+                                    <i class="fas fa-sign-in-alt"></i>
                                 </a>
-                                </li>';
-                        echo '<li>' . $cpay . '</li>';
-
+                            </li>';
                     } else {
-                        echo '<li class="nav-item">
+                        echo '<li class="col nav-item">
                                 <a class="nav-link" href="Sign\sign_in_user_form.html" rel="nofollow">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <i class="fa fa-user"></i>
                                 </a>
                               </li>';
                     }
