@@ -33,7 +33,7 @@ Jonathan Febrian Handoyo - 222102303
     <!-- Navbar  -->
     <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #800606cd;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="../PHP/index.php">
                 <img src="../assets/logo/bem.png" alt="BEM Logo" style="width: 2em;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -276,42 +276,61 @@ Jonathan Febrian Handoyo - 222102303
                     <!-- Hubungi Kami -->
                     <div class="col-lg-10 mb-5">
                         <h5 class="font-weight-light">Hubungi Kami</h5>
-                        <form method="POST" id="contactForm" name="contactForm">
+                        <form method="POST" action="https://api.web3forms.com/submit" id="contactForm" name="contactForm">
+                            <input type="hidden" name="access_key" value="a92b1116-7e98-47b7-9c0d-84656a1ef1a6">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                                     </div>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+                                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
                                     </div>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <div class="form-group">
-                                        <textarea class="form-control" id="message" name="message" rows="7" placeholder="Message"></textarea>
+                                        <textarea class="form-control" id="message" name="message" rows="7" placeholder="Message" required></textarea>
                                     </div>
                                 </div>
+                                <!-- <div class="h-captcha" data-captcha="true"></div> -->
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary fw-bold"
-                                            style="background-color: #800706;"><a href="mailto@bem.calvin.ac.id">Send Message <small>*Dont Click</small></a></button>
+                                        <button type="submit" class="btn btn-primary fw-bold border-0" style="background-color: #800706;">Send Message</button>
                                         <div class="submitting"></div>
                                     </div>
                                 </div>
                             </div>
                         </form>
+                        <script src="https://web3forms.com/client/script.js" async defer></script>
                     </div>
                 </section>
             </div>
         </div>
     </section>
+
+<!-- <script src='https://smtpjs.com/v3/smtp.js'></script>
+<script>
+    function sendEnail(){
+        Email.send({
+            Host: "smtp.gmail.com",
+            Username: "dimas.sepuluhipatiga.1920@gmail.com",
+            Password: "dimasohdimas24",
+            To: "gilbertgregorius@gmail.com",
+            From: document.getElementById('emailTo').value,
+            Subject: document.getElementById('subject').value,
+            Body:"Name: " + document.getElementById('name').value + document.getElementById('message').value
+        }).then(
+            message => alert('Email Sent Successfully')
+        )
+    }
+</script> -->
 </body>
 
 <!-- Part 5 | Footer -->

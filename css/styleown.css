@@ -151,7 +151,7 @@ body {
 }
 
 .divisions {
-  min-height: 100vh;
+  max-height: 55vh;
 }
 
 .ministry-div {
