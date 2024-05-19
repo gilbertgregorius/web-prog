@@ -151,7 +151,7 @@ body {
 }
 
 .divisions {
-  min-height: 82.5vh;
+  max-height: 90vh;
 }
 
 .ministry-div {
@@ -532,3 +532,10 @@ footer {
   text-align: center;
 }
 
+<<<<<<< HEAD
+=======
+.banner {
+  background-image: url(../assets/bg/bg_shop.jpg);
+  background-blend-mode: overlay;
+}
+>>>>>>> 7bd9f55c21842df074745429ba98a3350cf18088

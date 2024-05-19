@@ -28,8 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn -> query($sql) === True) {
             echo "<h3> Sign up success!</h3>";
             echo "<p> You will be redirected to home page in 3 seconds</p>";
+<<<<<<< HEAD
             $sql  = "INSERT INTO calvin_pay
                     values(NULL, '$nim', 50000)";
+=======
+            $sql  = "INSERT INTO `calvin_pay` (`nim`, `balance`)
+                    values('$nim', 50000)";
+>>>>>>> 7bd9f55c21842df074745429ba98a3350cf18088
             $conn -> query($sql);
         } else {
             echo "<h3> Sign up failed!</h3>";
@@ -39,6 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 $conn -> close();
+<<<<<<< HEAD
 header("refresh:3;url='..'");
+=======
+header("refresh:3;url='../../PHP/'");
+>>>>>>> 7bd9f55c21842df074745429ba98a3350cf18088
 exit();
 ?>

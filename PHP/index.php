@@ -3,7 +3,11 @@ Gilbert Gregorius Kirana - 222102119
 Gery Yulianto - 222101862
 Jonathan Febrian Handoyo - 222102303
  -->
+<<<<<<< HEAD
  <?php include '../PHP/header.php'?>
+=======
+ <?php session_start();?>
+>>>>>>> 7bd9f55c21842df074745429ba98a3350cf18088
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +33,107 @@ Jonathan Febrian Handoyo - 222102303
     
 </head>
 
+<<<<<<< HEAD
+=======
+<header>
+    <!-- Navbar  -->
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #800606cd;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../PHP/index.php">
+                <img src="../assets/logo/bem.png" alt="BEM Logo" style="width: 2em;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <!-- Basic -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#learn-more">About</a>
+                    </0li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Our Division
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../html/events.html">Events</a></li>
+                            <li><a class="dropdown-item" href="../html/ministry.html">Ministry</a></li>
+                            <li><a class="dropdown-item" href="../html/talent.html">Talent</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="https://calvin.ac.id" target="_blank">Our Campus</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Social media -->
+                <ul class="row navbar-nav ms-auto">
+                    <li class="col col-3 nav-item">
+                        <a class="nav-link" href="https://www.youtube.com/@CalvinInstituteofTechnology" rel="nofollow" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li class="col col-3 nav-item">
+                        <a class="nav-link" href="https://www.facebook.com/" rel="nofollow" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li class="col col-3 nav-item">
+                        <a class="nav-link" href="https://x.com/" rel="nofollow" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- User information -->
+                <ul class="row navbar-nav">
+                <?php 
+                    if (isset($_SESSION['name'])) {
+                        $name = $_SESSION['name'];
+                        $cpay = $_SESSION['balance'];
+                        // Login
+                        echo '<li class="col nav-item">
+                                <a class="nav-link" href="" rel="nofollow">
+                                    <i class="fa fa-user"></i>
+                                </a>
+                                </li>';
+                        echo '<li class="col col-auto nav-link"> Welcome back, '
+                                    . $name .
+                             '</li>';
+                        echo '<li class="col nav-item">
+                                <a class="nav-link" href="shop.php" rel="nofollow">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </a>
+                            </li>';
+                        echo '<li class="col col-auto nav-link">
+                                
+                                    <i class="fa fa-wallet"></i> Rp50.000, -
+                                
+                             </li>';
+                        echo '<li class="col nav-item">
+                                <a class="nav-link" href="Sign\logout.php" rel="nofollow">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                </a>
+                            </li>';
+                    } else {
+                        echo '<li class="col nav-item">
+                                <a class="nav-link" href="Sign\sign_in_user_form.html" rel="nofollow">
+                                    <i class="fa fa-user"></i>
+                                </a>
+                              </li>';
+                    }
+                    ?>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+>>>>>>> 7bd9f55c21842df074745429ba98a3350cf18088
 <body class="d-flex flex-column h-100">
     <!-- Part 0 | Carousel -->
     <div id="introCarousel" class="carousel slide carousel-fade shadow-2-strong mt-0" data-bs-ride="carousel">
@@ -78,6 +183,7 @@ Jonathan Febrian Handoyo - 222102303
     <div class="row">
         <!-- Part 3.1 | Maleakhi -->
         <div class="col card border-0">
+<<<<<<< HEAD
             <div class="">
                 <div class="card-body px-5 pt-5 m-5 profile">
                     <div class="d-flex justify-content-center">
@@ -94,11 +200,28 @@ Jonathan Febrian Handoyo - 222102303
                         </figcaption>
                     </figure>
                 </div>
+=======
+            <div class="card-body px-5 pt-5 m-5 profile">
+                <div class="d-flex justify-content-center">
+                    <img src="../assets/people/male.jpg" class="rounded-circle shadow-5-strong" width="200" height="200">
+                </div>                    
+                <figure class="text-center">
+                    <blockquote class="blockquote mt-5 mb-4">
+                        <p><span class="font-italic">As President of BEM, I'm thrilled to kick off another promising year together. 
+                            Our goal is simple: to champion your voices and aspirations. With your support, we'll create an inclusive and dynamic community where every student thrives. 
+                            Let's make this year one to remember!.</span></p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer mb-0">
+                        Maleakhi Ezekiel <br><cite title="Source Title">President BEM 2023/2024</cite>
+                    </figcaption>
+                </figure>
+>>>>>>> 7bd9f55c21842df074745429ba98a3350cf18088
             </div>
         </div>
 
         <!-- Part 3.2 | Valerie -->
         <div class="col card border-0">
+<<<<<<< HEAD
             <div class="">
                 <div class="card-body px-5 pt-5 m-5 profile">
                     <div class="d-flex justify-content-center">
@@ -115,6 +238,11 @@ Jonathan Febrian Handoyo - 222102303
                             Valerie Wangsawijaya <br> <cite title="Source Title">Vice President BEM 2023/2024</cite>
                         </figcaption>
                     </figure>
+=======
+            <div class="card-body px-5 pt-5 m-5 profile">
+                <div class="d-flex justify-content-center">
+                    <img src="../assets/people/vale.jpg" class="rounded-circle shadow-5-strong" width="200" height="200">
+>>>>>>> 7bd9f55c21842df074745429ba98a3350cf18088
                 </div>
             </div>   
         </div>
