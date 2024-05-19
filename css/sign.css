@@ -1,0 +1,26 @@
+body{
+    background-image: url('../assets/bg/bg_sign.jpg');
+    background-repeat: no-repeat;
+    background-size: 210vh;
+    background-position:top;
+}
+strong{
+    color: red;
+}
+.container {
+    max-width: 35%;
+    background-color: rgba(255, 255, 255, 0.63);
+    border-radius: .5vw;
+}
+.btn-red {
+    border-color: #800606;
+    background-color: #800606;
+}
+.special {
+    background-color: #800606;
+}
+
+.form-control {
+    opacity: .663;
+    mix-blend-mode:multiply;
+}
