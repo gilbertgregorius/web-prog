@@ -40,6 +40,7 @@ Jonathan Febrian Handoyo - 222102303
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <!-- Basic -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
@@ -56,14 +57,15 @@ Jonathan Febrian Handoyo - 222102303
                             Our Division
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="events.html">Events</a></li>
-                            <li><a class="dropdown-item" href="ministry.html">Ministry</a></li>
-                            <li><a class="dropdown-item" href="talent.html">Talent</a></li>
+                            <li><a class="dropdown-item" href="../html/events.html">Events</a></li>
+                            <li><a class="dropdown-item" href="../html/ministry.html">Ministry</a></li>
+                            <li><a class="dropdown-item" href="../html/talent.html">Talent</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="https://calvin.ac.id" target="_blank">Our Campus</a></li>
                         </ul>
                     </li>
                 </ul>
+                <!-- Social media -->
                 <ul class="row navbar-nav ms-auto">
                     <li class="col col-3 nav-item">
                         <a class="nav-link" href="https://www.youtube.com/@CalvinInstituteofTechnology" rel="nofollow" target="_blank">
@@ -81,6 +83,7 @@ Jonathan Febrian Handoyo - 222102303
                         </a>
                     </li>
                 </ul>
+                <!-- User information -->
                 <ul class="row navbar-nav">
                 <?php 
                     if (isset($_SESSION['name'])) {
@@ -173,45 +176,41 @@ Jonathan Febrian Handoyo - 222102303
     <div class="row">
         <!-- Part 3.1 | Maleakhi -->
         <div class="col card border-0">
-            <div class="">
-                <div class="card-body px-5 pt-5 m-5 profile">
-                    <div class="d-flex justify-content-center">
-                        <img src="../assets/people/male.jpg" class="rounded-circle shadow-5-strong" width="200" height="200">
-                    </div>                    
-                    <figure class="text-center">
-                        <blockquote class="blockquote mt-5 mb-4">
-                            <p><span class="font-italic">As President of BEM, I'm thrilled to kick off another promising year together. 
-                                Our goal is simple: to champion your voices and aspirations. With your support, we'll create an inclusive and dynamic community where every student thrives. 
-                                Let's make this year one to remember!.</span></p>
-                        </blockquote>
-                        <figcaption class="blockquote-footer mb-0">
-                            Maleakhi Ezekiel <br><cite title="Source Title">President BEM 2023/2024</cite>
-                        </figcaption>
-                    </figure>
-                </div>
+            <div class="card-body px-5 pt-5 m-5 profile">
+                <div class="d-flex justify-content-center">
+                    <img src="../assets/people/male.jpg" class="rounded-circle shadow-5-strong" width="200" height="200">
+                </div>                    
+                <figure class="text-center">
+                    <blockquote class="blockquote mt-5 mb-4">
+                        <p><span class="font-italic">As President of BEM, I'm thrilled to kick off another promising year together. 
+                            Our goal is simple: to champion your voices and aspirations. With your support, we'll create an inclusive and dynamic community where every student thrives. 
+                            Let's make this year one to remember!.</span></p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer mb-0">
+                        Maleakhi Ezekiel <br><cite title="Source Title">President BEM 2023/2024</cite>
+                    </figcaption>
+                </figure>
             </div>
         </div>
 
         <!-- Part 3.2 | Valerie -->
         <div class="col card border-0">
-            <div class="">
-                <div class="card-body px-5 pt-5 m-5 profile">
-                    <div class="d-flex justify-content-center">
-                        <img src="../assets/people/vale.jpg" class="rounded-circle shadow-5-strong" width="200" height="200">
-                    </div>
-                    
-                    <figure class="text-center">
-                        <blockquote class="blockquote mt-5 mb-4">
-                            <p><span class="font-italic">As Vice President of BEM, I'm excited to welcome you to a year of growth and collaboration.
-                                Together, let's celebrate diversity and build a community where every voice is heard and valued. 
-                                Let's make it happen, together!</span></p>
-                        </blockquote>
-                        <figcaption class="blockquote-footer mb-0">
-                            Valerie Wangsawijaya <br> <cite title="Source Title">Vice President BEM 2023/2024</cite>
-                        </figcaption>
-                    </figure>
+            <div class="card-body px-5 pt-5 m-5 profile">
+                <div class="d-flex justify-content-center">
+                    <img src="../assets/people/vale.jpg" class="rounded-circle shadow-5-strong" width="200" height="200">
                 </div>
-            </div>   
+                
+                <figure class="text-center">
+                    <blockquote class="blockquote mt-5 mb-4">
+                        <p><span class="font-italic">As Vice President of BEM, I'm excited to welcome you to a year of growth and collaboration.
+                            Together, let's celebrate diversity and build a community where every voice is heard and valued. 
+                            Let's make it happen, together!</span></p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer mb-0">
+                        Valerie Wangsawijaya <br> <cite title="Source Title">Vice President BEM 2023/2024</cite>
+                    </figcaption>
+                </figure>
+            </div>
         </div>
     </div>
 
@@ -235,7 +234,7 @@ Jonathan Febrian Handoyo - 222102303
                     <div class="card-body">
                         <h5 class="card-title">Ministry Division</h5>
                         <p class="card-text">The Ministry Division focuses on spiritual growth and pastoral care, organizing prayer meetings, religious gatherings, and outreach programs to foster a supportive community and deepen students' spiritual beliefs.</p>
-                        <a href="ministry.html" class="btn btn-primary border-0" style="background-color: #800706;">More</a>
+                        <a href="../html/ministry.html" class="btn btn-primary border-0" style="background-color: #800706;">More</a>
                     </div>
                 </div>
             </div>
@@ -246,7 +245,7 @@ Jonathan Febrian Handoyo - 222102303
                     <div class="card-body">
                         <h5 class="card-title">Events Division</h5>
                         <p class="card-text">The Events Division plans diverse activities to enhance campus life, including cultural festivals, academic conferences, and social gatherings, promoting unity, collaboration, and school spirit.</p>
-                        <a href="events.html" class="btn btn-primary border-0" style="background-color: #800706;">More</a>
+                        <a href="../html/events.html" class="btn btn-primary border-0" style="background-color: #800706;">More</a>
                     </div>
                 </div>
             </div>
@@ -257,7 +256,7 @@ Jonathan Febrian Handoyo - 222102303
                     <div class="card-body">
                         <h5 class="card-title">Talent Division</h5>
                         <p class="card-text">The Talent Division recognizes and develops student talents through talent shows, workshops, and training programs, empowering students to reach their full potential and make meaningful contributions to the community.</p>
-                        <a href="talent.html" class="btn btn-primary border-0" style="background-color: #800706;">More</a>
+                        <a href="../html/talent.html" class="btn btn-primary border-0" style="background-color: #800706;">More</a>
                     </div>
                 </div>
             </div>
@@ -302,7 +301,7 @@ Jonathan Febrian Handoyo - 222102303
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary fw-bold"
-                                            style="background-color: #800706;">Send Message <small>*Dont Click</small></button>
+                                            style="background-color: #800706;"><a href="mailto@bem.calvin.ac.id">Send Message <small>*Dont Click</small></a></button>
                                         <div class="submitting"></div>
                                     </div>
                                 </div>

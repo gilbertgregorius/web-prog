@@ -28,8 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn -> query($sql) === True) {
             echo "<h3> Sign up success!</h3>";
             echo "<p> You will be redirected to home page in 3 seconds</p>";
-            $sql  = "INSERT INTO calvin_pay
-                    values(100, '$nim', 50000)";
+            $sql  = "INSERT INTO `calvin_pay` (`nim`, `balance`)
+                    values('$nim', 50000)";
             $conn -> query($sql);
         } else {
             echo "<h3> Sign up failed!</h3>";
