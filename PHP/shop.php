@@ -25,7 +25,7 @@
     <!-- Navbar  -->
     <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #800606cd;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="../PHP/index.php">
                 <img src="../assets/logo/bem.png" alt="BEM Logo" style="width: 2em;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../PHP/index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#learn-more">About</a>
@@ -111,12 +111,12 @@
                         <!-- Sale badge-->
                         <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="../assets/products/product-1.jpg" alt="..." />
+                        <img class="card-img-top" src="../assets/products/airjordan.jpg" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Product 1</h5>
+                                <h5 class="fw-bolder">Air Jordan</h5>
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -133,7 +133,7 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="#">Buy Now</a></div>
+                            <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="buy.php?item_id=4">Buy Now</a></div>
                         </div>
                     </div>
                 </div>
@@ -166,7 +166,7 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="#">Buy Now</a></div>
+                            <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="buy.php?item_id=3">Buy Now</a></div>
                         </div>
                     </div>
                 </div>
@@ -199,7 +199,7 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="#">Buy Now</a></div>
+                            <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="buy.php?item_id=2">Buy Now</a></div>
                         </div>
                     </div>
                 </div>
@@ -229,7 +229,7 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Buy Now</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="buy.php?item_id=1">Buy Now</a></div>
                         </div>
                     </div>
                 </div>

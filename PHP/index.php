@@ -3,7 +3,7 @@ Gilbert Gregorius Kirana - 222102119
 Gery Yulianto - 222101862
 Jonathan Febrian Handoyo - 222102303
  -->
-
+ <?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,6 +80,39 @@ Jonathan Febrian Handoyo - 222102303
                             <i class="fab fa-twitter"></i>
                         </a>
                     </li>
+                    <?php 
+                    
+                    if (isset($_SESSION['name'])) {
+                        $name = $_SESSION['name'];
+                        $cpay = $_SESSION['balance'];
+                        // Login
+                        echo '<li class="nav-item">
+                                <a class="nav-link" href="" rel="nofollow">
+                                    <i class="fa fa-user"></i>
+                                </a>
+                                </li>';
+                        echo '<li>' . $name . '</li>';
+                        echo '<li class="nav-item">
+                                <a class="nav-link" href="" rel="nofollow">
+                                    <i class="fa fa-wallet"></i>
+                                </a>
+                                <a class="nav-link" href="Sign\logout.php" rel="nofollow">
+                                    <b> Logout </b>
+                                </a>
+                                </li>';
+                        echo '<li>' . $cpay . '</li>';
+
+                    } else {
+                        echo '<li class="nav-item">
+                                <a class="nav-link" href="Sign\sign_in_user_form.html" rel="nofollow">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>
+                                <a class="nav-link" href="Sign\sign_in_user_form.html" rel="nofollow">
+                                    <b> Login </b>
+                                </a>
+                              </li>';
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
@@ -134,42 +167,46 @@ Jonathan Febrian Handoyo - 222102303
     <p class="display-3 fw-bold d-flex justify-content-center align-items-center mt-5">President & Vice President</p>
     <div class="row">
         <!-- Part 3.1 | Maleakhi -->
-        <div class="col col-lg-6 p-5 card">
-            <div class="card-body profile">
-                <div class="d-flex justify-content-center">
-                    <img src="../assets/people/male.jpg" class="rounded-circle shadow-5-strong" width="200" height="200">
+        <div class="col card border-0">
+            <div class="">
+                <div class="card-body px-5 pt-5 m-5 profile">
+                    <div class="d-flex justify-content-center">
+                        <img src="../assets/people/male.jpg" class="rounded-circle shadow-5-strong" width="200" height="200">
+                    </div>                    
+                    <figure class="text-center">
+                        <blockquote class="blockquote mt-5 mb-4">
+                            <p><span class="font-italic">As President of BEM, I'm thrilled to kick off another promising year together. 
+                                Our goal is simple: to champion your voices and aspirations. With your support, we'll create an inclusive and dynamic community where every student thrives. 
+                                Let's make this year one to remember!.</span></p>
+                        </blockquote>
+                        <figcaption class="blockquote-footer mb-0">
+                            Maleakhi Ezekiel <br><cite title="Source Title">President BEM 2023/2024</cite>
+                        </figcaption>
+                    </figure>
                 </div>
-                <figure class="text-center">
-                    <blockquote class="blockquote mt-5 mb-4">
-                        <p><span class="font-italic">As President of BEM, I'm thrilled to kick off another promising year together. 
-                            Our goal is simple: to champion your voices and aspirations. With your support, we'll create an inclusive and dynamic community where every student thrives. 
-                            Let's make this year one to remember!.</span></p>
-                    </blockquote>
-                    <figcaption class="blockquote-footer mb-0">
-                        Maleakhi Ezekiel <br><cite title="Source Title">President BEM 2023/2024</cite>
-                    </figcaption>
-                </figure>
             </div>
         </div>
 
         <!-- Part 3.2 | Valerie -->
-        <div class="col col-lg-6 p-5 card">
-            <div class="card-body pt-5 profile">
-                <div class="d-flex justify-content-center">
-                    <img src="../assets/people/vale.jpg" class="rounded-circle shadow-5-strong" width="200" height="200">
+        <div class="col card border-0">
+            <div class="">
+                <div class="card-body px-5 pt-5 m-5 profile">
+                    <div class="d-flex justify-content-center">
+                        <img src="../assets/people/vale.jpg" class="rounded-circle shadow-5-strong" width="200" height="200">
+                    </div>
+                    
+                    <figure class="text-center">
+                        <blockquote class="blockquote mt-5 mb-4">
+                            <p><span class="font-italic">As Vice President of BEM, I'm excited to welcome you to a year of growth and collaboration.
+                                Together, let's celebrate diversity and build a community where every voice is heard and valued. 
+                                Let's make it happen, together!</span></p>
+                        </blockquote>
+                        <figcaption class="blockquote-footer mb-0">
+                            Valerie Wangsawijaya <br> <cite title="Source Title">Vice President BEM 2023/2024</cite>
+                        </figcaption>
+                    </figure>
                 </div>
-                
-                <figure class="text-center">
-                    <blockquote class="blockquote mt-5 mb-4">
-                        <p><span class="font-italic">As Vice President of BEM, I'm excited to welcome you to a year of growth and collaboration.
-                            Together, let's celebrate diversity and build a community where every voice is heard and valued. 
-                            Let's make it happen, together!</span></p>
-                    </blockquote>
-                    <figcaption class="blockquote-footer mb-0">
-                        Valerie Wangsawijaya <br> <cite title="Source Title">Vice President BEM 2023/2024</cite>
-                    </figcaption>
-                </figure>
-            </div>
+            </div>   
         </div>
     </div>
 
